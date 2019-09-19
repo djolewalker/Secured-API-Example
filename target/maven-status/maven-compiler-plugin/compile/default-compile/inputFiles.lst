@@ -1,0 +1,10 @@
+/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/model/ExampleData.java
+/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/security/Authorize.java
+/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/security/TokenGenerator.java
+/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/controllers/JAXRSConfiguration.java
+/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/security/JwtFilter.java
+/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/model/User.java
+/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/controllers/ExampleDataController.java
+/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/controllers/UserController.java
+/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/security/TokenService.java
+/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/security/SecretUserReader.java

@@ -1,0 +1,10 @@
+controllers/UserController.class
+controllers/ExampleDataController.class
+security/TokenGenerator.class
+security/JwtFilter.class
+security/SecretUserReader.class
+model/User.class
+model/ExampleData.class
+security/TokenService.class
+security/Authorize.class
+controllers/JAXRSConfiguration.class
