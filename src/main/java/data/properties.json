@@ -1,0 +1,7 @@
+{
+    "secret": "someSecretKeysomeSecretKeysomeSecretKeysomeSecretKey",
+    "ldap-url":"ldap://localhost:10389",
+    "ldap-sarch-base":"ou=users,dc=dimi,dc=com",
+    "ldap-admin":"cn=admin,dc=dimi,dc=com",
+    "ldap-admin-password":"1234"
+}

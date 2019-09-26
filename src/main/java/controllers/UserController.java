@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.HashMap;
+import javax.inject.Inject;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -11,6 +12,7 @@ import javax.ws.rs.POST;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import javax.ws.rs.core.Response;
 import model.User;
+import security.LdapService;
 import security.SecretUserReader;
 import security.TokenGenerator;
 import security.TokenService;
@@ -23,6 +25,12 @@ public class UserController {
 
     @Context
     private UriInfo context;
+    
+    @Inject
+    private TokenGenerator tokengnerator;
+    
+    @Inject
+    private LdapService ldap;
 
     @POST()
     @Consumes(APPLICATION_JSON)
@@ -30,17 +38,15 @@ public class UserController {
     public Response authenticateUser(User authUser) {
 
         try {
-            HashMap<String, User> users = SecretUserReader.readUsers();
-            if (users.get(authUser.getUsername()) == null) {
-                throw new Exception("User does not exists");
-            }
+            
+            ldap.login(authUser);
 
             TokenService.readTokens();
             String token;
             if (TokenService.checkUser(authUser)) {
                 token = TokenService.getToken(authUser);
             } else {
-                token = TokenGenerator.issueToken(authUser.getUsername());
+                token = tokengnerator.issueToken(authUser.getUsername());
                 TokenService.addUserToken(authUser, token);
                 TokenService.writeToken();
             }
@@ -48,7 +54,7 @@ public class UserController {
             return Response.ok(token).build();
 
         } catch (Exception e) {
-            return Response.status(400,e.getMessage()).build();
+            return Response.status(400, "bad credentials").build();
         }
     }
 
