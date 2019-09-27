@@ -11,9 +11,9 @@ import javax.transaction.Transactional;
 import javax.ws.rs.POST;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import javax.ws.rs.core.Response;
+import model.CustomExceptionResponse;
 import model.User;
 import security.LdapService;
-import security.SecretUserReader;
 import security.TokenGenerator;
 
 @Path("/authenticate")
@@ -24,10 +24,10 @@ public class UserController {
 
     @Context
     private UriInfo context;
-    
+
     @Inject
     private TokenGenerator tokengnerator;
-    
+
     @Inject
     private LdapService ldap;
 
@@ -36,19 +36,16 @@ public class UserController {
     @Produces(APPLICATION_JSON)
     public Response authenticateUser(User authUser) {
         try {
-            
+
             ldap.login(authUser);
-         
+
             String token;
             token = tokengnerator.issueToken(authUser.getUsername());
 
             return Response.ok(token).build();
 
         } catch (Exception e) {
-            return Response.status(400, "bad credentials").build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(new CustomExceptionResponse(400, "Invalid username or password!", "Bad credentials")).build();
         }
     }
-
-    
-
 }

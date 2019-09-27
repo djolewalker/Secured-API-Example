@@ -36,8 +36,8 @@ import model.*;
 public class ExampleDataController {
 
     private ObjectMapper mapper = new ObjectMapper();
-    private HashMap<String,ExampleData> base;
-    
+    private HashMap<String, ExampleData> base;
+
     @Context
     private UriInfo context;
 
@@ -45,9 +45,8 @@ public class ExampleDataController {
      * Creates a new instance of GenericResource
      */
     public ExampleDataController() {
-        base = new HashMap<String,ExampleData>();
+        base = new HashMap<String, ExampleData>();
     }
-
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -64,10 +63,9 @@ public class ExampleDataController {
             return Response.serverError().build();
         }
     }
-    
-    
+
     @GET
-    @Produces(MediaType.APPLICATION_JSON) 
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     @Authorize
     public Response getTextById(@PathParam("id") int id) {
@@ -80,10 +78,9 @@ public class ExampleDataController {
         }
     }
 
-    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON) 
+    @Produces(MediaType.APPLICATION_JSON)
     @Authorize
     public Response postText(String content) {
         try {
@@ -96,14 +93,14 @@ public class ExampleDataController {
             System.out.println(e);
             return Response.notModified(e.getMessage()).build();
         }
-        
+
     }
-    
-    private void save() throws IOException{
+
+    private void save() throws IOException {
         mapper.writeValue(new File("/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/data/exampleData.json"), base);
     }
-    
-    private void read() throws IOException{
+
+    private void read() throws IOException {
         base = mapper.readValue(new File("/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/data/exampleData.json"), HashMap.class);
     }
 }

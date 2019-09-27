@@ -27,8 +27,8 @@ public class Properties {
             System.out.println(e);
         }
     }
-    
-    public String getProperty(String propetrty){
+
+    public String getProperty(String propetrty) {
         String value = storage.get(propetrty);
         return value;
     }

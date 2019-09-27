@@ -34,24 +34,22 @@ public class LdapService {
 
     public LdapService() {
     }
-    
-    public void login(User user) throws Exception{
-        
-        env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");  
+
+    public void login(User user) throws Exception {
+
+        env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
         env.put(Context.PROVIDER_URL, properties.getProperty("ldap-url"));
-        env.put(Context.SECURITY_PRINCIPAL, ("uid="+user.getUsername()+','+properties.getProperty("ldap-sarch-base")).toString());
+        env.put(Context.SECURITY_PRINCIPAL, ("uid=" + user.getUsername() + ',' + properties.getProperty("ldap-sarch-base")).toString());
         env.put(Context.SECURITY_CREDENTIALS, user.getPassword());
-        
+
         try {
             DirContext authCon = new InitialDirContext(env);
-            Attributes att = authCon.getAttributes("uid=jjankovic,"+properties.getProperty("ldap-sarch-base"));
+            Attributes att = authCon.getAttributes("uid=jjankovic," + properties.getProperty("ldap-sarch-base"));
             System.out.println(att);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             throw e;
         }
     }
-    
-    
 
 }

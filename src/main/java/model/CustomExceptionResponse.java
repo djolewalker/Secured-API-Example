@@ -9,15 +9,14 @@ package model;
  *
  * @author dimitrije
  */
-public class CustomExceptionResponse{
+public class CustomExceptionResponse {
 
     private String Title;
-    
+
     private int StatusCode;
-    
+
     private String message;
 
-    
     public CustomExceptionResponse(int StatusCode, String message, String Title) {
         this.StatusCode = StatusCode;
         this.message = message;

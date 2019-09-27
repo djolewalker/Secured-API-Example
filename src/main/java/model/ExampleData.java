@@ -1,18 +1,16 @@
 package model;
 
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
 public class ExampleData {
-    
+
     @JsonProperty("id")
     private int id;
-    
+
     @JsonProperty("name")
     private String name;
-    
+
     @JsonProperty("goal")
     private String goal;
 
@@ -46,8 +44,5 @@ public class ExampleData {
     public void setGoal(String goal) {
         this.goal = goal;
     }
-    
-    
-    
-}
 
+}
