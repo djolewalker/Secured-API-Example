@@ -1,8 +1,7 @@
-# WEB SERVICE WITH TOKEN AUTHENTICATION
+# WEB SERVICE SECURED WITH TOKEN
+# AND LDAP AUTHENTICATION
 
 This web api provide JSON example data. 
-
-If u want test this app modify path of json files in next classes: TokenService, SecretUserReader, ExampleDataController.
 
 ## JSON Objects
 
