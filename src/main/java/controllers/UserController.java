@@ -15,7 +15,6 @@ import model.User;
 import security.LdapService;
 import security.SecretUserReader;
 import security.TokenGenerator;
-import security.TokenService;
 
 @Path("/authenticate")
 @Produces(APPLICATION_JSON)
@@ -36,20 +35,12 @@ public class UserController {
     @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
     public Response authenticateUser(User authUser) {
-
         try {
             
             ldap.login(authUser);
-
-            TokenService.readTokens();
+         
             String token;
-            if (TokenService.checkUser(authUser)) {
-                token = TokenService.getToken(authUser);
-            } else {
-                token = tokengnerator.issueToken(authUser.getUsername());
-                TokenService.addUserToken(authUser, token);
-                TokenService.writeToken();
-            }
+            token = tokengnerator.issueToken(authUser.getUsername());
 
             return Response.ok(token).build();
 

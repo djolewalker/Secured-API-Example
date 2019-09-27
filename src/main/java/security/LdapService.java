@@ -10,6 +10,8 @@ import javax.inject.Inject;
 import javax.naming.Context;
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
+import javax.naming.directory.Attribute;
+import javax.naming.directory.Attributes;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
 import javax.naming.directory.SearchControls;
@@ -37,11 +39,13 @@ public class LdapService {
         
         env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");  
         env.put(Context.PROVIDER_URL, properties.getProperty("ldap-url"));
-        env.put(Context.SECURITY_PRINCIPAL, ("cn="+user.getUsername()+','+properties.getProperty("ldap-sarch-base")).toString());
+        env.put(Context.SECURITY_PRINCIPAL, ("uid="+user.getUsername()+','+properties.getProperty("ldap-sarch-base")).toString());
         env.put(Context.SECURITY_CREDENTIALS, user.getPassword());
         
         try {
             DirContext authCon = new InitialDirContext(env);
+            Attributes att = authCon.getAttributes("uid=jjankovic,"+properties.getProperty("ldap-sarch-base"));
+            System.out.println(att);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             throw e;
