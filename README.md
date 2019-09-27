@@ -1,6 +1,6 @@
 # WEB SERVICE SECURED WITH TOKEN AND LDAP AUTHENTICATION
 
-This web api provide JSON example data. 
+This web api provide acces to JSON example data. Secured services require authorised token. App issue token with /authenticate service. User data is stored in LDAP server.
 
 ## JSON Objects
 
