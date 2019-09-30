@@ -97,10 +97,10 @@ public class ExampleDataController {
     }
 
     private void save() throws IOException {
-        mapper.writeValue(new File("/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/data/exampleData.json"), base);
+        mapper.writeValue(new File("/home/dimitrije/NetBeansProjects/Secured-API-Example/src/main/java/data/exampleData.json"), base);
     }
 
     private void read() throws IOException {
-        base = mapper.readValue(new File("/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/data/exampleData.json"), HashMap.class);
+        base = mapper.readValue(new File("/home/dimitrije/NetBeansProjects/Secured-API-Example/src/main/java/data/exampleData.json"), HashMap.class);
     }
 }

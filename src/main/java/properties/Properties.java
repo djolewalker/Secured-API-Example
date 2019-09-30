@@ -22,7 +22,7 @@ public class Properties {
 
     public Properties() {
         try {
-            storage = mapper.readValue(new File("/home/dimitrije/NetBeansProjects/securedService/securedAppExample/src/main/java/data/properties.json"), HashMap.class);
+            storage = mapper.readValue(new File("/home/dimitrije/NetBeansProjects/Secured-API-Example/src/main/java/data/properties.json"), HashMap.class);
         } catch (Exception e) {
             System.out.println(e);
         }

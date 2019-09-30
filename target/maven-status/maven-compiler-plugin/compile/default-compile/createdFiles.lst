@@ -2,9 +2,10 @@ controllers/UserController.class
 controllers/ExampleDataController.class
 security/TokenGenerator.class
 security/JwtFilter.class
-security/SecretUserReader.class
+security/LdapService.class
+model/CustomExceptionResponse.class
 model/User.class
 model/ExampleData.class
-security/TokenService.class
 security/Authorize.class
+properties/Properties.class
 controllers/JAXRSConfiguration.class
