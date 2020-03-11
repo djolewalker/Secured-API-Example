@@ -1,13 +1,11 @@
 package controllers;
 
-import java.util.HashMap;
 import javax.inject.Inject;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
-import javax.transaction.Transactional;
 import javax.ws.rs.POST;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import javax.ws.rs.core.Response;
@@ -19,12 +17,8 @@ import security.TokenGenerator;
 @Path("/authenticate")
 @Produces(APPLICATION_JSON)
 @Consumes(APPLICATION_JSON)
-@Transactional
 public class UserController {
-
-    @Context
-    private UriInfo context;
-
+    
     @Inject
     private TokenGenerator tokengnerator;
 

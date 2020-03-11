@@ -32,7 +32,6 @@ import model.*;
  * @author dimitrije
  */
 @Path("examples")
-@RequestScoped
 public class ExampleDataController {
 
     private ObjectMapper mapper = new ObjectMapper();

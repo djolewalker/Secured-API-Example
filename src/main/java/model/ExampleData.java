@@ -5,15 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ExampleData {
 
-    @JsonProperty("id")
     private int id;
 
-    @JsonProperty("name")
     private String name;
 
-    @JsonProperty("goal")
     private String goal;
-
+    
     @JsonCreator
     public ExampleData(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("goal") String goal) {
         this.id = id;

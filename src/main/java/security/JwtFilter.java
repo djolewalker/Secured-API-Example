@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.annotation.Priority;
 import javax.crypto.SecretKey;
 import javax.inject.Inject;
+import javax.ws.rs.NameBinding;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.container.ContainerRequestContext;
@@ -17,16 +18,16 @@ import javax.ws.rs.ext.Provider;
 import model.CustomExceptionResponse;
 import properties.Properties;
 
-@Provider
+@Priority(Priorities.AUTHORIZATION)
 @Authorize
-@Priority(Priorities.AUTHENTICATION)
+@Provider
 public class JwtFilter implements ContainerRequestFilter {
 
     @Inject
     private Properties properties;
 
     @Override
-    public void filter(ContainerRequestContext crc) {
+    public void filter(ContainerRequestContext crc) throws IOException{
 
         String autorizationHeader = crc.getHeaderString(HttpHeaders.AUTHORIZATION);
 

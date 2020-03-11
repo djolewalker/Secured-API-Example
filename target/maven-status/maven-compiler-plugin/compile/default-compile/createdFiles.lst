@@ -1,11 +1,13 @@
-controllers/UserController.class
 controllers/ExampleDataController.class
 security/TokenGenerator.class
+model/ExampleData.class
+properties/Properties.class
+controllers/JAXRSConfiguration.class
+controllers/UserController.class
+controllers/ImgController.class
 security/JwtFilter.class
 security/LdapService.class
 model/CustomExceptionResponse.class
 model/User.class
-model/ExampleData.class
 security/Authorize.class
-properties/Properties.class
-controllers/JAXRSConfiguration.class
+model/ImgPojo.class
