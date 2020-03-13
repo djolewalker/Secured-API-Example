@@ -5,50 +5,30 @@
  */
 package security;
 
-import java.util.Hashtable;
+import java.io.IOException;
 import javax.inject.Inject;
-import javax.naming.Context;
-import javax.naming.NamingEnumeration;
-import javax.naming.NamingException;
-import javax.naming.directory.Attribute;
-import javax.naming.directory.Attributes;
-import javax.naming.directory.DirContext;
-import javax.naming.directory.InitialDirContext;
-import javax.naming.directory.SearchControls;
-import javax.naming.directory.SearchResult;
 import model.User;
-import properties.Properties;
+import org.apache.directory.api.ldap.model.exception.LdapException;
+import properties.IJediProperties;
 
-/**
- *
- * @author dimitrije
- */
 public class LdapService {
 
     @Inject
-    public Properties properties;
+    public IJediProperties properties;
 
-    private Hashtable env = new Hashtable();
-//    private DirContext ctx;
-//    private SearchControls searchControl;
+    @Inject
+    private ILdapConnectionFactory ldapConnection;
 
     public LdapService() {
     }
 
-    public void login(User user) throws Exception {
+    public void login(User user) throws IOException, LdapException {
 
-        env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-        env.put(Context.PROVIDER_URL, properties.getProperty("ldap-url"));
-        env.put(Context.SECURITY_PRINCIPAL, ("uid=" + user.getUsername() + ',' + properties.getProperty("ldap-sarch-base")).toString());
-        env.put(Context.SECURITY_CREDENTIALS, user.getPassword());
+        String usrDn = "uid=" + user.getUsername() + ',' + properties.getString("ldap.sarch.base", "");
+        String pass = user.getPassword();
 
-        try {
-            DirContext authCon = new InitialDirContext(env);
-            Attributes att = authCon.getAttributes("uid=jjankovic," + properties.getProperty("ldap-sarch-base"));
-            System.out.println(att);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            throw e;
+        try (PooledLdapConnection conn = this.ldapConnection.getPooledConnection()) {
+            conn.getConnection().bind(usrDn, pass);
         }
     }
 

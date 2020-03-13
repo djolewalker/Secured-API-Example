@@ -1,8 +1,8 @@
 {
     "secret": "someSecretKeysomeSecretKeysomeSecretKeysomeSecretKey",
     "ldap-url": "ldap://localhost:10389",
-    "ldap-sarch-base": "ou=users,dc=dimi,dc=com",
-    "ldap-admin": "cn=admin,dc=dimi,dc=com",
+    "ldap-sarch-base": "ou=admins,dc=jedi,dc=com",
+    "ldap-admin": "cn=admin,dc=jedi,dc=com",
     "ldap-admin-password": "1234",
     "token-exp-time": "10"
 }

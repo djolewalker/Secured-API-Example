@@ -17,8 +17,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
-import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.POST;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
@@ -26,12 +24,15 @@ import javax.ws.rs.core.Response;
 import security.Authorize;
 import model.*;
 
+import io.swagger.annotations.*;
+
 /**
  * REST Web Service
  *
  * @author dimitrije
  */
 @Path("examples")
+@Api(value = "examples", tags = {"examples"})
 public class ExampleDataController {
 
     private ObjectMapper mapper = new ObjectMapper();
@@ -81,10 +82,9 @@ public class ExampleDataController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Authorize
-    public Response postText(String content) {
+    public Response postText(ExampleData exam) {
         try {
             read();
-            ExampleData exam = mapper.readValue(content, ExampleData.class);
             base.put(String.valueOf(exam.getId()), exam);
             save();
             return Response.ok(exam).build();

@@ -11,30 +11,30 @@ package model;
  */
 public class ImgPojo {
     
-    public int id;
-    public String path;
+    public String name;
+    public String base64;
 
-    public ImgPojo(int id, String path) {
-        this.id = id;
-        this.path = path;
+    public ImgPojo(String name, String base64) {
+        this.name = name;
+        this.base64 = base64;
     }
 
-    public int getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPath() {
-        return path;
+
+    public String getBase64() {
+        return base64;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setBase64(String base64) {
+        this.base64 = base64;
     }
     
-    
-    
+  
 }

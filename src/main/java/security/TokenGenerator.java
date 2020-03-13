@@ -10,20 +10,20 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.crypto.SecretKey;
 import javax.inject.Inject;
-import properties.Properties;
+import properties.JediProperties;
 
 public class TokenGenerator {
 
     @Inject
-    private Properties properties;
+    private JediProperties properties;
 
     public String issueToken(String username) throws IOException {
-        SecretKey key = Keys.hmacShaKeyFor(properties.getProperty("secret").getBytes());
+        SecretKey key = Keys.hmacShaKeyFor(properties.getString("secret", "").getBytes());
         String token = Jwts.builder()
                 .setSubject(username)
                 .setIssuer("My local PC")
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(Calendar.getInstance().getTimeInMillis() + (long) ((Double.parseDouble(properties.getProperty("token-exp-time")) * 60000))))
+                .setExpiration(new Date(Calendar.getInstance().getTimeInMillis() + (long) ((Double.parseDouble(properties.getString("token.exp.time", "10")) * 60000))))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
         return token;

@@ -1,7 +1,10 @@
+/home/dimitrije/Works/Secured-API-Example/src/main/java/properties/JediProperties.java
+/home/dimitrije/Works/Secured-API-Example/src/main/java/security/PooledLdapConnection.java
 /home/dimitrije/Works/Secured-API-Example/src/main/java/security/Authorize.java
 /home/dimitrije/Works/Secured-API-Example/src/main/java/controllers/ExampleDataController.java
 /home/dimitrije/Works/Secured-API-Example/src/main/java/model/ImgPojo.java
-/home/dimitrije/Works/Secured-API-Example/src/main/java/properties/Properties.java
+/home/dimitrije/Works/Secured-API-Example/src/main/java/model/JwtTokenPojo.java
+/home/dimitrije/Works/Secured-API-Example/src/main/java/properties/EnhancedProperties.java
 /home/dimitrije/Works/Secured-API-Example/src/main/java/model/User.java
 /home/dimitrije/Works/Secured-API-Example/src/main/java/controllers/UserController.java
 /home/dimitrije/Works/Secured-API-Example/src/main/java/security/JwtFilter.java
@@ -10,4 +13,8 @@
 /home/dimitrije/Works/Secured-API-Example/src/main/java/model/ExampleData.java
 /home/dimitrije/Works/Secured-API-Example/src/main/java/controllers/ImgController.java
 /home/dimitrije/Works/Secured-API-Example/src/main/java/security/TokenGenerator.java
+/home/dimitrije/Works/Secured-API-Example/src/main/java/security/ILdapConnectionFactory.java
+/home/dimitrije/Works/Secured-API-Example/src/main/java/controllers/SwaggerConfigurator.java
+/home/dimitrije/Works/Secured-API-Example/src/main/java/security/LdapConnectionFactory.java
 /home/dimitrije/Works/Secured-API-Example/src/main/java/security/LdapService.java
+/home/dimitrije/Works/Secured-API-Example/src/main/java/properties/IJediProperties.java
