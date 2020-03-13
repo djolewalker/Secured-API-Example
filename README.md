@@ -27,25 +27,25 @@ App contains one 2 services. One for authentication and one for accessing data.
 Get all object from file:
 ```bash
 GET
-http://localhost:8080/securedAppExample/examples  #available without authentication
+http://localhost:8080/Secured-API-Example/examples  #available without authentication
 ```
 
 Get object by ID:
 ```bash
 GET
-http://localhost:8080/securedAppExample/examples/{id} #authentication required(berear token)
+http://localhost:8080/Secured-API-Example/examples/{id} #authentication required(berear token)
 ```
 
 Create object:
 ```bash
 POST
-http://localhost:8080/securedAppExample/examples #authentication required(berear token)
+http://localhost:8080/Secured-API-Example/examples #authentication required(berear token)
 ```
 
 Get token with credentials
 ```bash
 POST
-http://localhost:8080/securedAppExample/authenticate
+http://localhost:8080/Secured-API-Example/authenticate
 BODY:
 {
     "username": "user",
