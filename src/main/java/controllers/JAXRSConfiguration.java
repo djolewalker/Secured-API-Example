@@ -1,9 +1,7 @@
 package controllers;
 
-import com.wordnik.swagger.jaxrs.config.BeanConfig;
 import java.util.HashSet;
 import java.util.Set;
-import javax.annotation.PostConstruct;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import security.JwtFilter;
