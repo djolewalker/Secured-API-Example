@@ -2,7 +2,7 @@
 
 This web api provide acces to JSON example data. Secured services require authorised token. App issue token with /authenticate service. User data is stored in LDAP server.
 
-## Released feaures
+## Released features
 *  ldap user store
 *  property file management
 *  authorisation
